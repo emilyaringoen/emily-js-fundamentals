@@ -122,6 +122,7 @@ function flatten(arr) {
 }
 
 
+
 // Define a function named max that takes in one argument.
 //    arr (array of numbers)
 //
@@ -291,6 +292,14 @@ function values(obj) {
 // argument. For example, given { a: 1, b: 2 }, then return
 // [['a', 1], ['b', 2]].
 
+function toPairs (obj) {
+  var newArray = [];
+  for (var i in obj) {
+    newArray.push([i, obj[i]]);
+  }
+
+  return newArray;
+}
 
 
 
@@ -300,3 +309,12 @@ function values(obj) {
 // Return a new object where each key-value pair is from an element in the
 // argument. For example, given [['a', 1], ['b', 2]], then return
 // { a: 1, b: 2 }.
+function fromPairs (arr) {
+var newObj = {};
+    for (var i = 0; i < arr.length; i++) {
+      var innerArr = arr[i];
+        newObj[innerArr[0]] = innerArr[1];
+    }
+  return newObj;
+
+}
