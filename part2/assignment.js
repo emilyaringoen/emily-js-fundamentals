@@ -110,15 +110,22 @@ function replace(arr, from, to) {
 // Tip: You only need to flatten one level deep.
 //
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
-
+//
+// function flatten(arr) {
+//     var newArr = [];
+//     for (var i = 0; i < arr.length; i++) {
+//         for (var j = 0; j < arr[i].length; j++) {
+//             newArr.push(arr[i][j]);
+//         }
+//     }
+//     return newArr;
+// }
 function flatten(arr) {
-    var newArr = [];
-    for (var i = 0; i < arr.length; i++) {
-        for (var j = 0; j < arr[i].length; j++) {
-            newArr.push(arr[i][j]);
-        }
-    }
-    return newArr;
+  var newArr = [];
+  for (var i = 0; i < arr.length; i++) {
+    newArr = newArr.concat(arr)
+  }
+
 }
 
 
@@ -260,9 +267,9 @@ function combine(obj1, obj2) {
 
 function invert(obj) {
     var newObj = {};
-    for (var prop in obj) {
-        if (obj.hasOwnProperty(prop)) {
-            newObj[obj[prop]] = prop;
+    for (var key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            newObj[obj[key]] = key;
         }
     }
     return newObj;
@@ -277,13 +284,13 @@ function invert(obj) {
 
 function values(obj) {
     var arr = [];
-    for (var prop in obj) {
-        if (obj.hasOwnProperty(prop))
-            arr.push(obj[prop]);
+    for (var key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            arr.push(obj[key]);
     }
     return arr;
 }
-
+//Object.values(obj) method would do this!
 
 // Define a function called toPairs that takes in one argument.
 //    obj (object)
